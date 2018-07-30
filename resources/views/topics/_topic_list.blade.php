@@ -21,10 +21,15 @@
                     </div>
 
                     <div class="media-body meta">
-                        <a href="#" title="{{ $topic->category->name }}">
+                        {{--<a href="#" title="{{ $topic->category->name }}">--}}
+                            {{--<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>--}}
+                            {{--{{ $topic->category->name }}--}}
+                        {{--</a>--}}
+                        <a href="{{ route('categories.show', $topic->category->id) }}" title="{{ $topic->category->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                             {{ $topic->category->name }}
                         </a>
+
                         <span> • </span>
                         <a href="{{ route('users.show', [$topic->user_id]) }}" title="{{ $topic->user->name }}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
