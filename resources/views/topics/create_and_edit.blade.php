@@ -40,10 +40,10 @@
                         @endforeach
                     </select>
                 </div>
-            <div class="form-group">
-                <label for="body-field">Body</label>
-                <textarea name="body" id="editor" class="form-control" rows="3">{{ old('body', $topic->body ) }}</textarea>
-            </div>
+
+                <div class="form-group">
+                    <textarea name="body" class="form-control" id="editor" rows="3" placeholder="请填入至少三个字符的内容。" required>{{ old('body', $topic->body ) }}</textarea>
+                </div>
                 {{--<div class="form-group">--}}
                     {{--<label for="user_id-field">User_id</label>--}}
                     {{--<input class="form-control" type="text" name="user_id" id="user_id-field" value="{{ old('user_id', $topic->user_id ) }}" />--}}
@@ -88,7 +88,6 @@
 </div>
 
 @endsection
-
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
 @stop
@@ -103,6 +102,14 @@
         $(document).ready(function(){
             var editor = new Simditor({
                 textarea: $('#editor'),
+                upload: {
+                    url: '{{ route('topics.upload_image') }}',
+                    params: { _token: '{{ csrf_token() }}' },
+                    fileKey: 'upload_file',
+                    connectionCount: 3,
+                    leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+                },
+                pasteImage: true,
             });
         });
     </script>
