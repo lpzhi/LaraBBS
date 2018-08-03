@@ -15,4 +15,9 @@ class Reply extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeRecent($query)
+    {
+        return $query->orderBy('created_at','desc');
+    }
 }
