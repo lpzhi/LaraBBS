@@ -46,4 +46,8 @@ class Topic extends Model
         return $query->orderBy('updated_at','desc');
     }
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }

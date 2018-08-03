@@ -8950,3 +8950,28 @@ body {
   border-top: 1px solid #dcebf5;
 }
 
+.topic-reply hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.topic-reply a {
+  color: inherit;
+}
+
+.topic-reply .meta {
+  font-size: .9em;
+  color: #b3b3b3;
+}
+
+/* User profile page */
+
+.users-show-page .meta {
+  font-size: .9em;
+  color: #b3b3b3;
+}
+
+.users-show-page .reply-content {
+  margin: 6px 0;
+}
+
